@@ -1,265 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adithyan PS | Web Developer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - SaaS Product</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[var(--light)] text-[var(--secondary)]">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur shadow z-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between h-16 items-center">
-                <span class="text-2xl font-bold bg-clip-text text-transparent" style="background-image: var(--primary-gradient);">Adithyan PS</span>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="#about" class="nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">About</a>
-                    <a href="#skills" class="nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Skills</a>
-                    <a href="#experience" class="nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Experience</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Projects</a>
-                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Testimonials</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-gray-500 hover:text-[var(--primary)] focus:outline-none">
-                        <i class="fas fa-bars fa-lg"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 mt-2 pb-2">
-                <a href="#home" class="block nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Home</a>
-                <a href="#about" class="block nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">About</a>
-                <a href="#skills" class="block nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Skills</a>
-                <a href="#experience" class="block nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Experience</a>
-                <a href="#projects" class="block nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Projects</a>
-                <a href="#testimonials" class="block nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Testimonials</a>
-                <a href="#contact" class="block nav-link text-gray-700 hover:text-[var(--primary)] px-3 py-2 text-sm font-medium">Contact</a>
-            </div>
+<body>
+  <main class="login-main">
+    <section class="login-card" aria-label="Sign in form">
+      <h1 class="login-title">Sign in to your account</h1>
+      <form id="loginForm" autocomplete="off" novalidate>
+        <div class="input-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" aria-label="Email address" required autocomplete="username">
+          <span class="error-message" id="emailError" aria-live="polite"></span>
         </div>
-    </nav>
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-24 pb-12 bg-gradient-to-br from-indigo-500 via-sky-400 to-blue-300 animate-fade-in">
-        <div class="text-center max-w-2xl mx-auto text-white">
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 hero-glow">Hi, I'm Adithyan PS</h1>
-            <p class="text-xl md:text-2xl mb-6">A passionate <span class="font-semibold text-yellow-200">Web Developer</span> crafting modern, minimal, and performant web experiences.</p>
-            <div class="flex justify-center space-x-4 mb-6">
-                <a href="#projects" class="inline-block bg-white/90 text-[var(--primary)] px-6 py-2 rounded shadow hover:bg-white transition font-semibold">View Projects</a>
-                <a href="#contact" class="inline-block bg-[var(--primary)] text-white px-6 py-2 rounded shadow hover:bg-[var(--accent)] transition font-semibold">Contact Me</a>
-            </div>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="https://github.com/" target="_blank" class="hover:text-yellow-200"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://linkedin.com/" target="_blank" class="hover:text-yellow-200"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a href="mailto:adithyan@email.com" class="hover:text-yellow-200"><i class="fas fa-envelope fa-2x"></i></a>
-            </div>
+        <div class="input-group password-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" aria-label="Password" required autocomplete="current-password">
+            <button type="button" id="togglePassword" aria-label="Show password" tabindex="0">
+              <svg id="eyeIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </button>
+          </div>
+          <span class="error-message" id="passwordError" aria-live="polite"></span>
         </div>
+        <div class="form-row">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberMe" name="rememberMe" tabindex="0">
+            Remember me
+          </label>
+          <a href="#" class="forgot-link" tabindex="0">Forgot password?</a>
+        </div>
+        <button type="submit" class="login-btn" id="loginBtn">Sign In</button>
+        <div class="form-feedback" id="formFeedback" aria-live="polite"></div>
+      </form>
+      <div class="oauth-divider"><span>or</span></div>
+      <div class="oauth-buttons">
+        <button class="oauth-btn google" aria-label="Sign in with Google" tabindex="0">
+          <svg width="20" height="20" viewBox="0 0 48 48"><g><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.6 33.1 29.8 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c2.7 0 5.2.9 7.2 2.4l6.4-6.4C33.5 5.1 28.1 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-8.1 20-21 0-1.3-.1-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.5 17.1 19.4 14 24 14c2.7 0 5.2.9 7.2 2.4l6.4-6.4C33.5 5.1 28.1 3 24 3 15.1 3 7.2 8.7 6.3 14.7z"/><path fill="#FBBC05" d="M24 44c5.8 0 10.6-2.9 13.7-7.4l-7-5.1C29.5 38.9 26.1 41 24 41c-4.6 0-8.5-3.1-10.7-7.4l-7 5.1C7.2 39.3 15.1 44 24 44z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-1.2 3.2-4.2 5.5-7.7 5.5-4.6 0-8.5-3.1-10.7-7.4l-7 5.1C7.2 39.3 15.1 44 24 44c5.8 0 10.6-2.9 13.7-7.4l-7-5.1C29.5 38.9 26.1 41 24 41c-4.6 0-8.5-3.1-10.7-7.4l-7 5.1C7.2 39.3 15.1 44 24 44z"/></g></svg>
+          Sign in with Google
+        </button>
+        <button class="oauth-btn apple" aria-label="Sign in with Apple" tabindex="0">
+          <svg width="20" height="20" viewBox="0 0 24 24"><g><path fill="#000" d="M16.365 1.43c0 1.14-.93 2.07-2.07 2.07-.04 0-.08 0-.12-.01-.02-.04-.03-.09-.03-.14 0-1.13.92-2.05 2.05-2.05.05 0 .09.01.13.01.02.04.03.09.03.12zm3.13 4.36c-1.13-1.36-2.9-1.53-3.62-1.53-.1 0-.19.01-.28.01-.7 0-1.7-.17-2.81-.17-1.12 0-2.13.17-2.83.17-.09 0-.18-.01-.28-.01-.72 0-2.49.17-3.62 1.53-1.13 1.36-1.34 3.36-1.34 4.13 0 2.13 1.13 4.19 2.51 5.57.7.7 1.47 1.47 2.51 1.47.97 0 1.24-.47 2.51-.47 1.27 0 1.54.47 2.51.47 1.04 0 1.81-.77 2.51-1.47 1.38-1.38 2.51-3.44 2.51-5.57 0-.77-.21-2.77-1.34-4.13zM12 17.5c-.7 0-1.4.2-2.1.2-.7 0-1.4-.2-2.1-.2-1.1 0-2.2.3-3.1.9-.9.6-1.5 1.5-1.5 2.5 0 1.1.6 2.1 1.5 2.7.9.6 2 .9 3.1.9.7 0 1.4-.2 2.1-.2.7 0 1.4.2 2.1.2 1.1 0 2.2-.3 3.1-.9.9-.6 1.5-1.6 1.5-2.7 0-1-.6-1.9-1.5-2.5-.9-.6-2-.9-3.1-.9z"/></g></svg>
+          Sign in with Apple
+        </button>
+      </div>
     </section>
-    <div class="section-divider"></div>
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-[var(--section-bg)] animate-fade-in">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-6 text-[var(--primary)]">About Me</h2>
-            <p class="text-lg text-[var(--muted)] leading-relaxed mb-4">I'm a web developer with a love for clean, minimal design and efficient code. I enjoy building responsive, user-friendly websites and applications that solve real-world problems. My focus is on delivering high-quality solutions with a keen eye for detail and a passion for learning new technologies.</p>
-            <ul class="list-disc pl-6 text-[var(--secondary)]">
-                <li>🌱 Always learning new frameworks and best practices</li>
-                <li>🎨 Strong sense for UI/UX and accessibility</li>
-                <li>🚀 Experience with both frontend and backend</li>
-                <li>🤝 Collaborative and communicative team player</li>
-            </ul>
-        </div>
-    </section>
-    <div class="section-divider"></div>
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white animate-fade-in">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-[var(--primary)]">Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
-                    <div class="font-semibold">HTML5</div>
-                    <div class="badge">Semantic</div>
-                </div>
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
-                    <div class="font-semibold">CSS3</div>
-                    <div class="badge">Flexbox</div><div class="badge">Grid</div>
-                </div>
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fab fa-js-square text-4xl text-yellow-400 mb-2"></i>
-                    <div class="font-semibold">JavaScript</div>
-                    <div class="badge">ES6+</div><div class="badge">DOM</div>
-                </div>
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fab fa-react text-4xl text-cyan-500 mb-2"></i>
-                    <div class="font-semibold">React</div>
-                    <div class="badge">Hooks</div><div class="badge">SPA</div>
-                </div>
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fab fa-node-js text-4xl text-green-500 mb-2"></i>
-                    <div class="font-semibold">Node.js</div>
-                    <div class="badge">Express</div>
-                </div>
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fas fa-database text-4xl text-indigo-500 mb-2"></i>
-                    <div class="font-semibold">MongoDB</div>
-                    <div class="badge">Mongoose</div>
-                </div>
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fab fa-git-alt text-4xl text-red-500 mb-2"></i>
-                    <div class="font-semibold">Git</div>
-                    <div class="badge">Version Control</div>
-                </div>
-                <div class="skill-card bg-[var(--section-bg)] rounded p-6 text-center shadow-sm hover:shadow-lg transition">
-                    <i class="fas fa-cloud text-4xl text-blue-400 mb-2"></i>
-                    <div class="font-semibold">Cloud</div>
-                    <div class="badge">Vercel</div><div class="badge">Netlify</div>
-                </div>
-            </div>
-            <div class="text-center text-[var(--muted)]">...and always learning more!</div>
-        </div>
-    </section>
-    <div class="section-divider"></div>
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-[var(--section-dark)] text-white animate-fade-in">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-[var(--accent)]">Experience</h2>
-            <div class="space-y-8">
-                <div class="flex flex-col md:flex-row md:items-center md:space-x-8">
-                    <div class="flex-shrink-0 mb-2 md:mb-0">
-                        <span class="badge bg-[var(--accent)]">2023 - Present</span>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-xl">Frontend Developer <span class="text-[var(--accent)]">@ ModernWeb Co.</span></h3>
-                        <p class="text-[var(--light)]">Building and maintaining modern, responsive web apps using React, Tailwind CSS, and TypeScript. Collaborated with designers and backend teams to deliver seamless user experiences.</p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row md:items-center md:space-x-8">
-                    <div class="flex-shrink-0 mb-2 md:mb-0">
-                        <span class="badge bg-[var(--primary)]">2021 - 2023</span>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-xl">Full Stack Intern <span class="text-[var(--primary)]">@ DevStart</span></h3>
-                        <p class="text-[var(--light)]">Worked on full stack projects, from REST APIs to interactive dashboards. Gained experience in Node.js, MongoDB, and cloud deployment.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="section-divider"></div>
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-[var(--section-bg)] animate-fade-in">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-[var(--primary)]">Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="project-card bg-white rounded shadow-sm hover:shadow-lg transition p-6 relative">
-                    <h3 class="font-semibold text-lg mb-2">Minimal Portfolio</h3>
-                    <p class="text-[var(--muted)] mb-2">A clean, responsive portfolio template built with HTML, CSS, and Tailwind CSS. Features smooth animations and a modern layout.</p>
-                    <div class="mb-2">
-                        <span class="badge">HTML</span><span class="badge">Tailwind</span><span class="badge">Responsive</span>
-                    </div>
-                    <a href="#" class="text-[var(--primary)] hover:underline text-sm">View Project</a>
-                </div>
-                <div class="project-card bg-white rounded shadow-sm hover:shadow-lg transition p-6 relative">
-                    <h3 class="font-semibold text-lg mb-2">Task Manager App</h3>
-                    <p class="text-[var(--muted)] mb-2">A simple and intuitive task manager web app for productivity. Includes drag-and-drop, reminders, and cloud sync.</p>
-                    <div class="mb-2">
-                        <span class="badge">React</span><span class="badge">Node.js</span><span class="badge">MongoDB</span>
-                    </div>
-                    <a href="#" class="text-[var(--primary)] hover:underline text-sm">View Project</a>
-                </div>
-                <div class="project-card bg-white rounded shadow-sm hover:shadow-lg transition p-6 relative">
-                    <h3 class="font-semibold text-lg mb-2">E-commerce Platform</h3>
-                    <p class="text-[var(--muted)] mb-2">A scalable e-commerce platform with user authentication, product management, and payment integration.</p>
-                    <div class="mb-2">
-                        <span class="badge">Full Stack</span><span class="badge">Stripe</span><span class="badge">JWT</span>
-                    </div>
-                    <a href="#" class="text-[var(--primary)] hover:underline text-sm">View Project</a>
-                </div>
-                <div class="project-card bg-white rounded shadow-sm hover:shadow-lg transition p-6 relative">
-                    <h3 class="font-semibold text-lg mb-2">Blog Platform</h3>
-                    <p class="text-[var(--muted)] mb-2">A markdown-powered blog platform with live preview, comments, and social sharing.</p>
-                    <div class="mb-2">
-                        <span class="badge">React</span><span class="badge">Node.js</span><span class="badge">Markdown</span>
-                    </div>
-                    <a href="#" class="text-[var(--primary)] hover:underline text-sm">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="section-divider"></div>
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white animate-fade-in">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-[var(--primary)]">Testimonials</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-[var(--section-bg)] rounded-lg p-6 shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-semibold">Rahul S.</div>
-                            <div class="text-xs text-[var(--muted)]">Product Manager, ModernWeb Co.</div>
-                        </div>
-                    </div>
-                    <p class="text-[var(--secondary)]">“Adithyan is a fantastic developer! He delivered our project on time and exceeded our expectations with his attention to detail and creativity.”</p>
-                </div>
-                <div class="bg-[var(--section-bg)] rounded-lg p-6 shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-semibold">Priya K.</div>
-                            <div class="text-xs text-[var(--muted)]">CTO, DevStart</div>
-                        </div>
-                    </div>
-                    <p class="text-[var(--secondary)]">“Working with Adithyan was a pleasure. His technical skills and communication made the process smooth and enjoyable.”</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="section-divider"></div>
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-[var(--section-dark)] text-white animate-fade-in">
-        <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-[var(--accent)]">Contact</h2>
-            <form class="bg-white/10 rounded-lg p-8 shadow-md" action="#" method="POST">
-                <div class="mb-4">
-                    <label class="block mb-2 text-sm font-semibold" for="name">Name</label>
-                    <input class="w-full px-4 py-2 rounded bg-white/80 text-[var(--secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" type="text" id="name" name="name" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-2 text-sm font-semibold" for="email">Email</label>
-                    <input class="w-full px-4 py-2 rounded bg-white/80 text-[var(--secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" type="email" id="email" name="email" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-2 text-sm font-semibold" for="message">Message</label>
-                    <textarea class="w-full px-4 py-2 rounded bg-white/80 text-[var(--secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="bg-[var(--primary)] text-white px-6 py-2 rounded shadow hover:bg-[var(--accent)] transition font-semibold">Send Message</button>
-            </form>
-            <div class="mt-8 flex justify-center space-x-6">
-                <a href="https://github.com/" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://linkedin.com/" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a href="mailto:adithyan@email.com" class="hover:text-[var(--accent)]"><i class="fas fa-envelope fa-2x"></i></a>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-white border-t mt-12 py-6 text-center text-[var(--muted)] text-sm">
-        <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-2 md:mb-0">&copy; 2024 Adithyan PS. All rights reserved.</div>
-            <div class="space-x-4">
-                <a href="https://github.com/" target="_blank" class="hover:text-[var(--primary)]"><i class="fab fa-github fa-lg"></i></a>
-                <a href="mailto:adithyan@email.com" class="hover:text-[var(--primary)]"><i class="fas fa-envelope fa-lg"></i></a>
-                <a href="https://linkedin.com/" target="_blank" class="hover:text-[var(--primary)]"><i class="fab fa-linkedin fa-lg"></i></a>
-            </div>
-        </div>
-    </footer>
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
+  </main>
+  <script src="script.js"></script>
 </body>
-</html>
+</html> 
